@@ -3,6 +3,26 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+
+# Airflow logs and db
+logs/
+airflow/airflow.db
+airflow/airflow.cfg
+airflow/airflow-webserver.pid
+airflow/simple_auth_manager_passwords.json.generated
+airflow/standalone_admin_password.txt
+*.pkl
+*.joblib
+*.pt
+*.h5
+*.onnx
+
+# DAGs folders to ignore
+airflow/dags/__pycache__/
+airflow/dags/scripts/__pycache__/
+airflow/dags/models/
+airflow/dags/data/
+
 # C extensions
 *.so
 
