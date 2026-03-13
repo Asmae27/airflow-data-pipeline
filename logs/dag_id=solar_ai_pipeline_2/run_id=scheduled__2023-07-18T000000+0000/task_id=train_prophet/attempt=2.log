@@ -1,0 +1,79 @@
+[2025-07-31T08:36:06.385+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T08:36:06.543+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-07-18T00:00:00+00:00 [queued]>
+[2025-07-31T08:36:06.602+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-07-18T00:00:00+00:00 [queued]>
+[2025-07-31T08:36:06.606+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-07-31T08:36:06.807+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_prophet> on 2023-07-18 00:00:00+00:00
+[2025-07-31T08:36:06.815+0000] {standard_task_runner.py:63} INFO - Started process 5544 to run task
+[2025-07-31T08:36:06.822+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'train_prophet', 'scheduled__2023-07-18T00:00:00+00:00', '--job-id', '2178', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmp1fbbk9yg']
+[2025-07-31T08:36:06.827+0000] {standard_task_runner.py:91} INFO - Job 2178: Subtask train_prophet
+[2025-07-31T08:36:07.095+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-07-18T00:00:00+00:00 [running]> on host 4c586ddbbbe9
+[2025-07-31T08:36:07.520+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='train_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-07-18T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-18T00:00:00+00:00'
+[2025-07-31T08:36:07.522+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T08:36:08.538+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-31T08:36:08.548+0000] {logging_mixin.py:188} INFO - Training from 2023-01-01 to 2023-01-19
+[2025-07-31T08:36:08.945+0000] {logging_mixin.py:188} INFO - Test 1/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.012+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.013+0000] {logging_mixin.py:188} INFO - Test 2/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.020+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.021+0000] {logging_mixin.py:188} INFO - Test 3/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.028+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.029+0000] {logging_mixin.py:188} INFO - Test 4/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.035+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.036+0000] {logging_mixin.py:188} INFO - Test 5/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.043+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.044+0000] {logging_mixin.py:188} INFO - Test 6/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.051+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.052+0000] {logging_mixin.py:188} INFO - Test 7/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.059+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.060+0000] {logging_mixin.py:188} INFO - Test 8/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.067+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.068+0000] {logging_mixin.py:188} INFO - Test 9/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.074+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.075+0000] {logging_mixin.py:188} INFO - Test 10/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.082+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.083+0000] {logging_mixin.py:188} INFO - Test 11/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.091+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.092+0000] {logging_mixin.py:188} INFO - Test 12/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.098+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.099+0000] {logging_mixin.py:188} INFO - Test 13/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.106+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.107+0000] {logging_mixin.py:188} INFO - Test 14/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.114+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.115+0000] {logging_mixin.py:188} INFO - Test 15/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.122+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.123+0000] {logging_mixin.py:188} INFO - Test 16/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.129+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.131+0000] {logging_mixin.py:188} INFO - Test 17/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T08:36:09.138+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.139+0000] {logging_mixin.py:188} INFO - Test 18/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T08:36:09.145+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}: Column ds has timezone specified, which is not supported. Remove timezone.
+[2025-07-31T08:36:09.146+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T08:36:09.148+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/train_prophet.py", line 88, in train_prophet
+    best_model_temp, scores_temp = optimize_prophet_model(temp_df)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/train_prophet.py", line 44, in optimize_prophet_model
+    best = min(results, key=lambda x: x[1])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: min() arg is an empty sequence
+[2025-07-31T08:36:09.207+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=solar_ai_pipeline_2, task_id=train_prophet, run_id=scheduled__2023-07-18T00:00:00+00:00, execution_date=20230718T000000, start_date=20250731T083606, end_date=20250731T083609
+[2025-07-31T08:36:09.478+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2178 for task train_prophet (min() arg is an empty sequence; 5544)
+[2025-07-31T08:36:09.529+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-31T08:36:09.623+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T08:36:09.717+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

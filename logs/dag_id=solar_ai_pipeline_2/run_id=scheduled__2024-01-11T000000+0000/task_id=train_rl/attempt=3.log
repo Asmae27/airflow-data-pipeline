@@ -1,0 +1,127 @@
+[2025-07-31T16:08:24.983+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T16:08:25.197+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_rl scheduled__2024-01-11T00:00:00+00:00 [queued]>
+[2025-07-31T16:08:25.274+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_rl scheduled__2024-01-11T00:00:00+00:00 [queued]>
+[2025-07-31T16:08:25.278+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2025-07-31T16:08:25.375+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_rl> on 2024-01-11 00:00:00+00:00
+[2025-07-31T16:08:25.382+0000] {standard_task_runner.py:63} INFO - Started process 90953 to run task
+[2025-07-31T16:08:25.387+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'train_rl', 'scheduled__2024-01-11T00:00:00+00:00', '--job-id', '3420', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmp0dn__cvr']
+[2025-07-31T16:08:25.390+0000] {standard_task_runner.py:91} INFO - Job 3420: Subtask train_rl
+[2025-07-31T16:08:25.624+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.train_rl scheduled__2024-01-11T00:00:00+00:00 [running]> on host a2a0dd314bdc
+[2025-07-31T16:08:26.443+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='train_rl' AIRFLOW_CTX_EXECUTION_DATE='2024-01-11T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-11T00:00:00+00:00'
+[2025-07-31T16:08:26.445+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T16:08:27.360+0000] {logging_mixin.py:188} INFO - [INFO] Starting Q-learning process...
+[2025-07-31T16:08:27.560+0000] {logging_mixin.py:188} INFO - [INFO] Loading data files...
+[2025-07-31T16:08:29.956+0000] {logging_mixin.py:188} INFO - [INFO] Merged dataset contains 3168 rows
+[2025-07-31T16:08:29.968+0000] {logging_mixin.py:188} INFO - [INFO] Loaded existing Q-table
+[2025-07-31T16:08:29.984+0000] {logging_mixin.py:188} INFO - [INFO] Starting Q-learning training...
+[2025-07-31T16:08:30.922+0000] {logging_mixin.py:188} INFO - [DEBUG] Reward counters snapshot: {'low_temp_low_solar': 922, 'high_temp_high_solar': 179, 'high_flow_low_temp': 124, 'other': 209}
+[2025-07-31T16:08:30.924+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 0: Total reward = -618.80, Epsilon = 0.9950
+[2025-07-31T16:09:16.021+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 50: Total reward = 162.60, Epsilon = 0.7744
+[2025-07-31T16:10:07.600+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 100: Total reward = 667.60, Epsilon = 0.6027
+[2025-07-31T16:10:40.677+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 150: Total reward = 1078.30, Epsilon = 0.4691
+[2025-07-31T16:11:10.842+0000] {logging_mixin.py:188} INFO - [DEBUG] Reward counters snapshot: {'low_temp_low_solar': 185322, 'high_temp_high_solar': 35979, 'high_flow_low_temp': 24924, 'other': 42009}
+[2025-07-31T16:11:10.842+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 200: Total reward = 1368.40, Epsilon = 0.3651
+[2025-07-31T16:11:41.015+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 250: Total reward = 1588.80, Epsilon = 0.2842
+[2025-07-31T16:12:12.631+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 300: Total reward = 1807.00, Epsilon = 0.2212
+[2025-07-31T16:12:42.101+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 350: Total reward = 1914.70, Epsilon = 0.1721
+[2025-07-31T16:13:11.644+0000] {logging_mixin.py:188} INFO - [DEBUG] Reward counters snapshot: {'low_temp_low_solar': 369722, 'high_temp_high_solar': 71779, 'high_flow_low_temp': 49724, 'other': 83809}
+[2025-07-31T16:13:11.644+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 400: Total reward = 2076.80, Epsilon = 0.1340
+[2025-07-31T16:13:41.078+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 450: Total reward = 2149.60, Epsilon = 0.1043
+[2025-07-31T16:14:10.580+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 500: Total reward = 2156.10, Epsilon = 0.1000
+[2025-07-31T16:14:39.983+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 550: Total reward = 2181.10, Epsilon = 0.1000
+[2025-07-31T16:15:09.315+0000] {logging_mixin.py:188} INFO - [DEBUG] Reward counters snapshot: {'low_temp_low_solar': 554122, 'high_temp_high_solar': 107579, 'high_flow_low_temp': 74524, 'other': 125609}
+[2025-07-31T16:15:09.316+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 600: Total reward = 2132.00, Epsilon = 0.1000
+[2025-07-31T16:15:38.708+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 650: Total reward = 2171.60, Epsilon = 0.1000
+[2025-07-31T16:16:07.990+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 700: Total reward = 2152.30, Epsilon = 0.1000
+[2025-07-31T16:16:37.262+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 750: Total reward = 2199.90, Epsilon = 0.1000
+[2025-07-31T16:17:06.354+0000] {logging_mixin.py:188} INFO - [DEBUG] Reward counters snapshot: {'low_temp_low_solar': 738522, 'high_temp_high_solar': 143379, 'high_flow_low_temp': 99324, 'other': 167409}
+[2025-07-31T16:17:06.355+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 800: Total reward = 2170.20, Epsilon = 0.1000
+[2025-07-31T16:17:37.906+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 850: Total reward = 2165.30, Epsilon = 0.1000
+[2025-07-31T16:18:09.764+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 900: Total reward = 2206.00, Epsilon = 0.1000
+[2025-07-31T16:18:38.940+0000] {logging_mixin.py:188} INFO - [DEBUG] Epoch 950: Total reward = 2163.20, Epsilon = 0.1000
+[2025-07-31T16:19:07.199+0000] {logging_mixin.py:188} INFO - 
+[DEBUG] Reward rule trigger counts during training:
+[2025-07-31T16:19:07.200+0000] {logging_mixin.py:188} INFO -  - low_temp_low_solar: 922000 times
+[2025-07-31T16:19:07.200+0000] {logging_mixin.py:188} INFO -  - high_temp_high_solar: 179000 times
+[2025-07-31T16:19:07.201+0000] {logging_mixin.py:188} INFO -  - high_flow_low_temp: 124000 times
+[2025-07-31T16:19:07.201+0000] {logging_mixin.py:188} INFO -  - other: 209000 times
+[2025-07-31T16:19:07.207+0000] {logging_mixin.py:188} INFO - [INFO] Global Q-table saved (continuous learning)
+[2025-07-31T16:19:07.208+0000] {logging_mixin.py:188} INFO - [INFO] Starting policy evaluation on last available day...
+[2025-07-31T16:19:07.215+0000] {logging_mixin.py:188} INFO - 
+[RESULT] Policy Evaluation on Last Day
+[2025-07-31T16:19:07.220+0000] {logging_mixin.py:188} INFO -            datetime  yhat_temp  solar_irradiance  yhat_flow  action  reward
+2024-01-09 23:00:00   0.090535          0.000000   0.522697       0     1.0
+2024-01-10 00:00:00   0.090214          0.000000   0.429444       0     1.0
+2024-01-10 01:00:00   0.113856          0.000000   0.305396       0     1.0
+2024-01-10 02:00:00   0.149736          0.000000   0.170812       0     1.0
+2024-01-10 03:00:00   0.168233          0.000000   0.076505       0     1.0
+2024-01-10 04:00:00   0.155851          0.000000   0.065136       0     1.0
+2024-01-10 05:00:00   0.139175          0.000000   0.131042       0     1.0
+2024-01-10 06:00:00   0.174029          0.005528   0.218184       0     1.0
+2024-01-10 07:00:00   0.306407          0.190988   0.262626       0     1.0
+2024-01-10 08:00:00   0.536873          0.510276   0.244158       0     1.0
+2024-01-10 09:00:00   0.816332          0.791743   0.201566       0     1.0
+2024-01-10 10:00:00   1.073335          1.000000   0.198159       0     1.0
+2024-01-10 11:00:00   1.248331          0.957652   0.268736       0     1.0
+2024-01-10 12:00:00   1.310296          0.774670   0.394439       0     1.0
+2024-01-10 13:00:00   1.252649          0.722710   0.524404       0     1.0
+2024-01-10 14:00:00   1.084521          0.523954   0.619967       0     0.1
+2024-01-10 15:00:00   0.831533          0.253874   0.679550       0     0.1
+2024-01-10 16:00:00   0.541819          0.019805   0.725013       1     1.0
+2024-01-10 17:00:00   0.280512          0.000000   0.768932       1     0.5
+2024-01-10 18:00:00   0.104742          0.000000   0.798344       1     0.5
+2024-01-10 19:00:00   0.033470          0.000000   0.789923       1     0.5
+2024-01-10 20:00:00   0.037961          0.000000   0.737346       1     0.5
+2024-01-10 21:00:00   0.064843          0.000000   0.659585       1     0.5
+2024-01-10 22:00:00   0.075241          0.000000   0.580741       1     0.5
+[2025-07-31T16:19:07.222+0000] {logging_mixin.py:188} INFO - 
+[RESULT] Q-learning Q-table (Top non-zero rows):
+[2025-07-31T16:19:07.225+0000] {logging_mixin.py:188} INFO -  state  Q_action_0  Q_action_1 best_action
+     0    9.056903    6.198606  Q_action_0
+     1    0.007320    0.005987  Q_action_0
+     2    0.001560    0.001560  Q_action_0
+     3    0.000581    0.008662  Q_action_1
+     4    0.006011    0.007081  Q_action_1
+     5    8.975954    5.802975  Q_action_0
+     6    8.350022    5.377651  Q_action_0
+     7    8.317522    5.313472  Q_action_0
+     8    0.003042    0.005248  Q_action_1
+     9    0.004319    0.002912  Q_action_0
+    10    8.972609    6.803947  Q_action_0
+    11    0.002921    0.003664  Q_action_1
+    12    0.004561    0.007852  Q_action_1
+    13    0.001997    0.005142  Q_action_1
+    14    0.005924    0.000465  Q_action_0
+    15    7.608967    8.025687  Q_action_1
+    16    0.000651    0.009489  Q_action_1
+    17    0.009656    0.008084  Q_action_0
+    18    0.003046    0.000977  Q_action_0
+    19    0.006842    0.004402  Q_action_0
+[2025-07-31T16:19:07.226+0000] {logging_mixin.py:188} INFO - 
+[DEBUG] Total states explored: 125 / 125
+[2025-07-31T16:19:07.226+0000] {logging_mixin.py:188} INFO - [DEBUG] Best action counts:
+[2025-07-31T16:19:07.227+0000] {logging_mixin.py:188} INFO - best_action
+Q_action_0    84
+Q_action_1    41
+Name: count, dtype: int64
+[2025-07-31T16:19:07.238+0000] {logging_mixin.py:188} INFO - [INFO] Q-table exported to /opt/airflow/dags/models/q_table_readable_2024-01-11.csv
+[2025-07-31T16:19:07.239+0000] {logging_mixin.py:188} INFO - [DEBUG] Q-table stats:
+[2025-07-31T16:19:07.239+0000] {logging_mixin.py:188} INFO - Mean Q-value for action 0: 3.3322
+[2025-07-31T16:19:07.240+0000] {logging_mixin.py:188} INFO - Mean Q-value for action 1: 2.4942
+[2025-07-31T16:19:07.507+0000] {logging_mixin.py:188} INFO - [DEBUG] Unique states in data: 55 / 125
+[2025-07-31T16:19:07.764+0000] {logging_mixin.py:188} INFO - [DEBUG] Top 5 most frequent states: [(20, 539), (0, 450), (5, 320), (15, 316), (10, 172)]
+[2025-07-31T16:19:07.772+0000] {logging_mixin.py:188} INFO -          yhat_temp  solar_irradiance    yhat_flow
+count  3168.000000       3168.000000  3168.000000
+mean      0.359481          0.269065     0.495535
+std       0.392786          0.361153     0.248620
+min      -0.036801          0.000000     0.053879
+25%       0.054769          0.000000     0.275667
+50%       0.119532          0.004992     0.473876
+75%       0.692114          0.574827     0.740377
+max       1.318525          1.000000     0.913890
+[2025-07-31T16:19:08.165+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-31T16:19:08.166+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T16:19:08.177+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=solar_ai_pipeline_2, task_id=train_rl, run_id=scheduled__2024-01-11T00:00:00+00:00, execution_date=20240111T000000, start_date=20250731T160825, end_date=20250731T161908
+[2025-07-31T16:19:08.266+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-31T16:19:08.311+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T16:19:08.334+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

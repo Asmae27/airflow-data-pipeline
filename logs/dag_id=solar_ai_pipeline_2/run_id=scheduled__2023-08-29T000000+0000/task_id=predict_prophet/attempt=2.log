@@ -1,0 +1,53 @@
+[2025-07-31T09:27:38.692+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T09:27:38.757+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-29T00:00:00+00:00 [queued]>
+[2025-07-31T09:27:38.780+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-29T00:00:00+00:00 [queued]>
+[2025-07-31T09:27:38.781+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-07-31T09:27:38.825+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): predict_prophet> on 2023-08-29 00:00:00+00:00
+[2025-07-31T09:27:38.830+0000] {standard_task_runner.py:63} INFO - Started process 15354 to run task
+[2025-07-31T09:27:38.833+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'predict_prophet', 'scheduled__2023-08-29T00:00:00+00:00', '--job-id', '2391', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmp1w1rl3ku']
+[2025-07-31T09:27:38.835+0000] {standard_task_runner.py:91} INFO - Job 2391: Subtask predict_prophet
+[2025-07-31T09:27:38.951+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-29T00:00:00+00:00 [running]> on host a2a0dd314bdc
+[2025-07-31T09:27:39.174+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='predict_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-08-29T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-08-29T00:00:00+00:00'
+[2025-07-31T09:27:39.175+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T09:27:40.663+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-31T09:27:41.529+0000] {logging_mixin.py:188} WARNING - /opt/airflow/dags/scripts/predict_prophet.py:52 FutureWarning: In a future version of pandas, parsing datetimes with mixed time zones will raise an error unless `utc=True`. Please specify `utc=True` to opt in to the new behaviour and silence this warning. To create a `Series` with mixed offsets and `object` dtype, please use `apply` and `datetime.datetime.strptime`
+[2025-07-31T09:27:41.535+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T09:27:41.535+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/predict_prophet.py", line 56, in predict_prophet
+    future_df['ds'] = pd.to_datetime(future_df['ds'])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/tools/datetimes.py", line 1112, in to_datetime
+    values = convert_listlike(arg._values, format)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/tools/datetimes.py", line 490, in _convert_listlike_datetimes
+    result, tz_parsed = objects_to_datetime64ns(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pandas/core/arrays/datetimes.py", line 2346, in objects_to_datetime64ns
+    result, tz_parsed = tslib.array_to_datetime(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tslib.pyx", line 403, in pandas._libs.tslib.array_to_datetime
+  File "tslib.pyx", line 552, in pandas._libs.tslib.array_to_datetime
+  File "tslib.pyx", line 480, in pandas._libs.tslib.array_to_datetime
+  File "conversion.pyx", line 716, in pandas._libs.tslibs.conversion.convert_timezone
+ValueError: Tz-aware datetime.datetime cannot be converted to datetime64 unless utc=True, at position 384
+[2025-07-31T09:27:41.561+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=solar_ai_pipeline_2, task_id=predict_prophet, run_id=scheduled__2023-08-29T00:00:00+00:00, execution_date=20230829T000000, start_date=20250731T092738, end_date=20250731T092741
+[2025-07-31T09:27:41.615+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2391 for task predict_prophet (Tz-aware datetime.datetime cannot be converted to datetime64 unless utc=True, at position 384; 15354)
+[2025-07-31T09:27:41.659+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-31T09:27:41.695+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T09:27:41.727+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,50 @@
+[2025-07-31T13:12:31.432+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T13:12:31.611+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-09T00:00:00+00:00 [queued]>
+[2025-07-31T13:12:31.682+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-09T00:00:00+00:00 [queued]>
+[2025-07-31T13:12:31.692+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-07-31T13:12:31.970+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): predict_prophet> on 2023-08-09 00:00:00+00:00
+[2025-07-31T13:12:31.983+0000] {standard_task_runner.py:63} INFO - Started process 22748 to run task
+[2025-07-31T13:12:31.990+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'predict_prophet', 'scheduled__2023-08-09T00:00:00+00:00', '--job-id', '3014', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmpqgrveiw5']
+[2025-07-31T13:12:31.995+0000] {standard_task_runner.py:91} INFO - Job 3014: Subtask predict_prophet
+[2025-07-31T13:12:32.183+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-09T00:00:00+00:00 [running]> on host a2a0dd314bdc
+[2025-07-31T13:12:32.567+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='predict_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-08-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-08-09T00:00:00+00:00'
+[2025-07-31T13:12:32.569+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T13:12:34.741+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-31T13:12:35.505+0000] {logging_mixin.py:188} INFO - [CORRUPTED FILE] /opt/airflow/dags/data/processed/preprocessed_2023-03-19.csv
+[2025-07-31T13:12:35.511+0000] {logging_mixin.py:188} INFO -    datetime
+3       NaT
+4       NaT
+5       NaT
+6       NaT
+7       NaT
+8       NaT
+9       NaT
+10      NaT
+11      NaT
+12      NaT
+[2025-07-31T13:12:35.512+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T13:12:35.513+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/predict_prophet.py", line 59, in predict_prophet
+    raise ValueError(f"Invalid datetime values found in file: {f}")
+ValueError: Invalid datetime values found in file: /opt/airflow/dags/data/processed/preprocessed_2023-03-19.csv
+[2025-07-31T13:12:35.561+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=solar_ai_pipeline_2, task_id=predict_prophet, run_id=scheduled__2023-08-09T00:00:00+00:00, execution_date=20230809T000000, start_date=20250731T131231, end_date=20250731T131235
+[2025-07-31T13:12:35.673+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3014 for task predict_prophet (Invalid datetime values found in file: /opt/airflow/dags/data/processed/preprocessed_2023-03-19.csv; 22748)
+[2025-07-31T13:12:35.747+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-31T13:12:35.811+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T13:12:36.035+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,857 @@
+[2025-07-31T12:10:05.143+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T12:10:05.333+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-08-03T00:00:00+00:00 [queued]>
+[2025-07-31T12:10:05.405+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-08-03T00:00:00+00:00 [queued]>
+[2025-07-31T12:10:05.409+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2025-07-31T12:10:05.508+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_prophet> on 2023-08-03 00:00:00+00:00
+[2025-07-31T12:10:05.519+0000] {standard_task_runner.py:63} INFO - Started process 8495 to run task
+[2025-07-31T12:10:05.528+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'train_prophet', 'scheduled__2023-08-03T00:00:00+00:00', '--job-id', '2953', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmpb3vxdpm8']
+[2025-07-31T12:10:05.533+0000] {standard_task_runner.py:91} INFO - Job 2953: Subtask train_prophet
+[2025-07-31T12:10:05.819+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-08-03T00:00:00+00:00 [running]> on host a2a0dd314bdc
+[2025-07-31T12:10:06.426+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='train_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-08-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-08-03T00:00:00+00:00'
+[2025-07-31T12:10:06.430+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T12:10:07.422+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-31T12:10:07.436+0000] {logging_mixin.py:188} INFO - Training from 2023-01-01 to 2023-02-04
+[2025-07-31T12:10:08.028+0000] {logging_mixin.py:188} INFO - Test 1/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:08.085+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/vng_hs50.json
+[2025-07-31T12:10:08.168+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/qp9lhqku.json
+[2025-07-31T12:10:08.174+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:08.174+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:08.175+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=40274', 'data', 'file=/tmp/tmp23jcm_a1/vng_hs50.json', 'init=/tmp/tmp23jcm_a1/qp9lhqku.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelve7167hu/prophet_model-20250731121008.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:08.175+0000] {logging_mixin.py:188} WARNING - 12:10:08 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:08.175+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:08.235+0000] {logging_mixin.py:188} WARNING - 12:10:08 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:08.234+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:08.241+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:08.242+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:08.246+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db58c6a90>
+[2025-07-31T12:10:08.388+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/jl34eu12.json
+[2025-07-31T12:10:08.455+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/bjgg96ry.json
+[2025-07-31T12:10:08.460+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:08.461+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:08.461+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=78678', 'data', 'file=/tmp/tmp23jcm_a1/jl34eu12.json', 'init=/tmp/tmp23jcm_a1/bjgg96ry.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_models10aby2a/prophet_model-20250731121008.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:08.463+0000] {logging_mixin.py:188} WARNING - 12:10:08 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:08.462+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:08.535+0000] {logging_mixin.py:188} WARNING - 12:10:08 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:08.535+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:08.626+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:08.677+0000] {logging_mixin.py:188} INFO - Test 2/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:08.704+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/04300o0t.json
+[2025-07-31T12:10:08.792+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/aa9ayac1.json
+[2025-07-31T12:10:08.794+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:08.795+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:08.795+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=52171', 'data', 'file=/tmp/tmp23jcm_a1/04300o0t.json', 'init=/tmp/tmp23jcm_a1/aa9ayac1.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modellwglqqdl/prophet_model-20250731121008.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:08.796+0000] {logging_mixin.py:188} WARNING - 12:10:08 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:08.796+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:08.886+0000] {logging_mixin.py:188} WARNING - 12:10:08 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:08.885+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:08.893+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:08.894+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:08.895+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5d1c710>
+[2025-07-31T12:10:09.027+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/4tlu4fhj.json
+[2025-07-31T12:10:09.096+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/pvygbm7y.json
+[2025-07-31T12:10:09.101+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:09.102+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:09.103+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=344', 'data', 'file=/tmp/tmp23jcm_a1/4tlu4fhj.json', 'init=/tmp/tmp23jcm_a1/pvygbm7y.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelot0jn5b1/prophet_model-20250731121009.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:09.104+0000] {logging_mixin.py:188} WARNING - 12:10:09 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:09.103+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:09.160+0000] {logging_mixin.py:188} WARNING - 12:10:09 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:09.160+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:09.242+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:09.302+0000] {logging_mixin.py:188} INFO - Test 3/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:09.328+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/da6l4h0y.json
+[2025-07-31T12:10:09.414+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/wvuqn6lb.json
+[2025-07-31T12:10:09.420+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:09.421+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:09.422+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=47658', 'data', 'file=/tmp/tmp23jcm_a1/da6l4h0y.json', 'init=/tmp/tmp23jcm_a1/wvuqn6lb.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelbiieymut/prophet_model-20250731121009.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:09.423+0000] {logging_mixin.py:188} WARNING - 12:10:09 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:09.423+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:09.505+0000] {logging_mixin.py:188} WARNING - 12:10:09 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:09.505+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:09.511+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:09.512+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:09.513+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db58523d0>
+[2025-07-31T12:10:09.644+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/k6zy_a5s.json
+[2025-07-31T12:10:09.723+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/h2hyajy7.json
+[2025-07-31T12:10:09.726+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:09.726+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:09.727+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=24944', 'data', 'file=/tmp/tmp23jcm_a1/k6zy_a5s.json', 'init=/tmp/tmp23jcm_a1/h2hyajy7.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelub9dwwwl/prophet_model-20250731121009.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:09.728+0000] {logging_mixin.py:188} WARNING - 12:10:09 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:09.727+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:09.803+0000] {logging_mixin.py:188} WARNING - 12:10:09 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:09.802+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:09.877+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:09.943+0000] {logging_mixin.py:188} INFO - Test 4/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:09.971+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/jlk9cxt2.json
+[2025-07-31T12:10:10.064+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/jizq94n8.json
+[2025-07-31T12:10:10.070+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:10.070+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:10.071+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=93811', 'data', 'file=/tmp/tmp23jcm_a1/jlk9cxt2.json', 'init=/tmp/tmp23jcm_a1/jizq94n8.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelrttm26ba/prophet_model-20250731121010.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:10.072+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:10.072+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:10.175+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:10.174+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:10.182+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:10.182+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:10.184+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db583d8d0>
+[2025-07-31T12:10:10.312+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/buuois0y.json
+[2025-07-31T12:10:10.391+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/s1qej7so.json
+[2025-07-31T12:10:10.394+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:10.395+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:10.395+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=56126', 'data', 'file=/tmp/tmp23jcm_a1/buuois0y.json', 'init=/tmp/tmp23jcm_a1/s1qej7so.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model5z0yem5x/prophet_model-20250731121010.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:10.397+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:10.396+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:10.449+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:10.449+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:10.533+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:10.588+0000] {logging_mixin.py:188} INFO - Test 5/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:10.611+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/f34lsdcm.json
+[2025-07-31T12:10:10.707+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/usjihpgg.json
+[2025-07-31T12:10:10.709+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:10.710+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:10.710+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=78207', 'data', 'file=/tmp/tmp23jcm_a1/f34lsdcm.json', 'init=/tmp/tmp23jcm_a1/usjihpgg.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model6ql55yiz/prophet_model-20250731121010.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:10.711+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:10.711+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:10.782+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:10.781+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:10.788+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:10.788+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:10.789+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db542d210>
+[2025-07-31T12:10:10.913+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/vh38ql7z.json
+[2025-07-31T12:10:10.982+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/23w3cm4u.json
+[2025-07-31T12:10:10.987+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:10.988+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:10.989+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=22728', 'data', 'file=/tmp/tmp23jcm_a1/vh38ql7z.json', 'init=/tmp/tmp23jcm_a1/23w3cm4u.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelku8jmez1/prophet_model-20250731121010.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:10.990+0000] {logging_mixin.py:188} WARNING - 12:10:10 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:10.989+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:11.041+0000] {logging_mixin.py:188} WARNING - 12:10:11 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:11.041+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:11.125+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:11.184+0000] {logging_mixin.py:188} INFO - Test 6/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:11.209+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/oxxxitz5.json
+[2025-07-31T12:10:11.296+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/djjqnv5g.json
+[2025-07-31T12:10:11.301+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:11.302+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:11.302+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=9027', 'data', 'file=/tmp/tmp23jcm_a1/oxxxitz5.json', 'init=/tmp/tmp23jcm_a1/djjqnv5g.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model7fizsovi/prophet_model-20250731121011.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:11.303+0000] {logging_mixin.py:188} WARNING - 12:10:11 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:11.303+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:11.409+0000] {logging_mixin.py:188} WARNING - 12:10:11 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:11.409+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:11.417+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:11.417+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:11.418+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54a9e90>
+[2025-07-31T12:10:11.546+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/nkmsm9zi.json
+[2025-07-31T12:10:11.624+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/umxodz68.json
+[2025-07-31T12:10:11.626+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:11.627+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:11.628+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=32872', 'data', 'file=/tmp/tmp23jcm_a1/nkmsm9zi.json', 'init=/tmp/tmp23jcm_a1/umxodz68.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model9byhvwtx/prophet_model-20250731121011.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:11.628+0000] {logging_mixin.py:188} WARNING - 12:10:11 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:11.628+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:11.681+0000] {logging_mixin.py:188} WARNING - 12:10:11 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:11.680+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:11.760+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:11.818+0000] {logging_mixin.py:188} INFO - Test 7/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:11.856+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ikap2eru.json
+[2025-07-31T12:10:11.960+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/hxrl86ew.json
+[2025-07-31T12:10:11.964+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:11.965+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:11.966+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=3292', 'data', 'file=/tmp/tmp23jcm_a1/ikap2eru.json', 'init=/tmp/tmp23jcm_a1/hxrl86ew.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modeluuyjc__m/prophet_model-20250731121011.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:11.966+0000] {logging_mixin.py:188} WARNING - 12:10:11 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:11.966+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:12.022+0000] {logging_mixin.py:188} WARNING - 12:10:12 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:12.022+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:12.030+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:12.031+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:12.033+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54f6e10>
+[2025-07-31T12:10:12.167+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/afq7pd_9.json
+[2025-07-31T12:10:12.240+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/7059fmpi.json
+[2025-07-31T12:10:12.246+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:12.247+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:12.248+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=30768', 'data', 'file=/tmp/tmp23jcm_a1/afq7pd_9.json', 'init=/tmp/tmp23jcm_a1/7059fmpi.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modeli6q2_1g_/prophet_model-20250731121012.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:12.250+0000] {logging_mixin.py:188} WARNING - 12:10:12 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:12.249+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:12.336+0000] {logging_mixin.py:188} WARNING - 12:10:12 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:12.336+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:12.423+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:12.488+0000] {logging_mixin.py:188} INFO - Test 8/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:12.512+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/a4rz9ixc.json
+[2025-07-31T12:10:12.607+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/f_ldtb5y.json
+[2025-07-31T12:10:12.613+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:12.613+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:12.614+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=26156', 'data', 'file=/tmp/tmp23jcm_a1/a4rz9ixc.json', 'init=/tmp/tmp23jcm_a1/f_ldtb5y.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelww90za_e/prophet_model-20250731121012.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:12.616+0000] {logging_mixin.py:188} WARNING - 12:10:12 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:12.615+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:12.703+0000] {logging_mixin.py:188} WARNING - 12:10:12 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:12.703+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:12.712+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:12.713+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:12.714+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54a9f10>
+[2025-07-31T12:10:12.847+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_pml5dgh.json
+[2025-07-31T12:10:12.931+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/gjzkqf38.json
+[2025-07-31T12:10:12.937+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:12.937+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:12.938+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=42868', 'data', 'file=/tmp/tmp23jcm_a1/_pml5dgh.json', 'init=/tmp/tmp23jcm_a1/gjzkqf38.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model9u75gpru/prophet_model-20250731121012.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:12.939+0000] {logging_mixin.py:188} WARNING - 12:10:12 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:12.939+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:13.014+0000] {logging_mixin.py:188} WARNING - 12:10:13 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:13.014+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:13.137+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:13.194+0000] {logging_mixin.py:188} INFO - Test 9/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:13.221+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_4uk8dnx.json
+[2025-07-31T12:10:13.324+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/4am41dtw.json
+[2025-07-31T12:10:13.327+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:13.328+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:13.328+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=80581', 'data', 'file=/tmp/tmp23jcm_a1/_4uk8dnx.json', 'init=/tmp/tmp23jcm_a1/4am41dtw.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model7jtimil8/prophet_model-20250731121013.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:13.329+0000] {logging_mixin.py:188} WARNING - 12:10:13 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:13.329+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:13.387+0000] {logging_mixin.py:188} WARNING - 12:10:13 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:13.387+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:13.395+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:13.396+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:13.397+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5569bd0>
+[2025-07-31T12:10:13.521+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/rear966j.json
+[2025-07-31T12:10:13.600+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/xxt9tbkb.json
+[2025-07-31T12:10:13.602+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:13.604+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:13.604+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=37580', 'data', 'file=/tmp/tmp23jcm_a1/rear966j.json', 'init=/tmp/tmp23jcm_a1/xxt9tbkb.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modeltiz0t0dm/prophet_model-20250731121013.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:13.606+0000] {logging_mixin.py:188} WARNING - 12:10:13 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:13.605+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:13.656+0000] {logging_mixin.py:188} WARNING - 12:10:13 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:13.656+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:13.750+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:13.812+0000] {logging_mixin.py:188} INFO - Test 10/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:13.835+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/enpv731m.json
+[2025-07-31T12:10:13.946+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ogmhero5.json
+[2025-07-31T12:10:13.948+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:13.949+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:13.949+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=56788', 'data', 'file=/tmp/tmp23jcm_a1/enpv731m.json', 'init=/tmp/tmp23jcm_a1/ogmhero5.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model_v79u1id/prophet_model-20250731121013.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:13.950+0000] {logging_mixin.py:188} WARNING - 12:10:13 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:13.950+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:14.048+0000] {logging_mixin.py:188} WARNING - 12:10:14 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:14.048+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:14.054+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:14.055+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:14.056+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db53a7d10>
+[2025-07-31T12:10:14.186+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/o0r5ycta.json
+[2025-07-31T12:10:14.256+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/qh2120sx.json
+[2025-07-31T12:10:14.260+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:14.261+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:14.261+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=92095', 'data', 'file=/tmp/tmp23jcm_a1/o0r5ycta.json', 'init=/tmp/tmp23jcm_a1/qh2120sx.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelyrp30tf8/prophet_model-20250731121014.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:14.262+0000] {logging_mixin.py:188} WARNING - 12:10:14 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:14.262+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:14.329+0000] {logging_mixin.py:188} WARNING - 12:10:14 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:14.328+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:14.404+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:14.455+0000] {logging_mixin.py:188} INFO - Test 11/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:14.476+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/csoh7i7z.json
+[2025-07-31T12:10:14.559+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/m2cbmtqf.json
+[2025-07-31T12:10:14.563+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:14.564+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:14.564+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=98853', 'data', 'file=/tmp/tmp23jcm_a1/csoh7i7z.json', 'init=/tmp/tmp23jcm_a1/m2cbmtqf.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelx3r45hno/prophet_model-20250731121014.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:14.565+0000] {logging_mixin.py:188} WARNING - 12:10:14 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:14.565+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:14.624+0000] {logging_mixin.py:188} WARNING - 12:10:14 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:14.624+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:14.753+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:14.755+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:14.756+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db58f7610>
+[2025-07-31T12:10:14.889+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/mqsr3n5c.json
+[2025-07-31T12:10:14.957+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ddbh98gm.json
+[2025-07-31T12:10:14.962+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:14.962+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:14.963+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=76234', 'data', 'file=/tmp/tmp23jcm_a1/mqsr3n5c.json', 'init=/tmp/tmp23jcm_a1/ddbh98gm.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model3julh5vv/prophet_model-20250731121014.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:14.964+0000] {logging_mixin.py:188} WARNING - 12:10:14 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:14.963+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:15.007+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:15.007+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:15.097+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:15.147+0000] {logging_mixin.py:188} INFO - Test 12/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:15.167+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/gn22culd.json
+[2025-07-31T12:10:15.276+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/q7mfrkz3.json
+[2025-07-31T12:10:15.278+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:15.278+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:15.279+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=33533', 'data', 'file=/tmp/tmp23jcm_a1/gn22culd.json', 'init=/tmp/tmp23jcm_a1/q7mfrkz3.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelue9crb_c/prophet_model-20250731121015.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:15.279+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:15.279+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:15.349+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:15.349+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:15.355+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:15.356+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:15.357+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5833810>
+[2025-07-31T12:10:15.483+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/h0hafnbu.json
+[2025-07-31T12:10:15.559+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/yr5ms2i1.json
+[2025-07-31T12:10:15.562+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:15.562+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:15.563+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=34668', 'data', 'file=/tmp/tmp23jcm_a1/h0hafnbu.json', 'init=/tmp/tmp23jcm_a1/yr5ms2i1.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model32ikeqo3/prophet_model-20250731121015.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:15.564+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:15.564+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:15.644+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:15.644+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:15.725+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:15.790+0000] {logging_mixin.py:188} INFO - Test 13/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:15.810+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/4gx3kq7u.json
+[2025-07-31T12:10:15.895+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/t269rqdg.json
+[2025-07-31T12:10:15.899+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:15.900+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:15.900+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=13674', 'data', 'file=/tmp/tmp23jcm_a1/4gx3kq7u.json', 'init=/tmp/tmp23jcm_a1/t269rqdg.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelnmp3dzpn/prophet_model-20250731121015.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:15.901+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:15.901+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:15.992+0000] {logging_mixin.py:188} WARNING - 12:10:15 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:15.992+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:15.998+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:15.999+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:16.001+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db53f0a90>
+[2025-07-31T12:10:16.131+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/1mlgb3xu.json
+[2025-07-31T12:10:16.206+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/l1yta8cz.json
+[2025-07-31T12:10:16.211+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:16.212+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:16.212+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=5305', 'data', 'file=/tmp/tmp23jcm_a1/1mlgb3xu.json', 'init=/tmp/tmp23jcm_a1/l1yta8cz.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model75h83znq/prophet_model-20250731121016.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:16.214+0000] {logging_mixin.py:188} WARNING - 12:10:16 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:16.213+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:16.301+0000] {logging_mixin.py:188} WARNING - 12:10:16 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:16.301+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:16.376+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:16.423+0000] {logging_mixin.py:188} INFO - Test 14/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:16.448+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/dyqilf9e.json
+[2025-07-31T12:10:16.569+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/d351ga1l.json
+[2025-07-31T12:10:16.574+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:16.574+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:16.575+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=19495', 'data', 'file=/tmp/tmp23jcm_a1/dyqilf9e.json', 'init=/tmp/tmp23jcm_a1/d351ga1l.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modele2zsouxm/prophet_model-20250731121016.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:16.576+0000] {logging_mixin.py:188} WARNING - 12:10:16 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:16.576+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:16.753+0000] {logging_mixin.py:188} WARNING - 12:10:16 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:16.753+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:16.760+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:16.760+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:16.762+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54fc290>
+[2025-07-31T12:10:16.877+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/shwnt9gr.json
+[2025-07-31T12:10:16.950+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/gwwidiga.json
+[2025-07-31T12:10:16.956+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:16.958+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:16.958+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=24463', 'data', 'file=/tmp/tmp23jcm_a1/shwnt9gr.json', 'init=/tmp/tmp23jcm_a1/gwwidiga.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelgw5uiufe/prophet_model-20250731121016.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:16.960+0000] {logging_mixin.py:188} WARNING - 12:10:16 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:16.959+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:17.029+0000] {logging_mixin.py:188} WARNING - 12:10:17 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:17.029+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:17.113+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:17.167+0000] {logging_mixin.py:188} INFO - Test 15/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:17.188+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/1e080g9b.json
+[2025-07-31T12:10:17.293+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/zucl05ne.json
+[2025-07-31T12:10:17.298+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:17.299+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:17.300+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=89881', 'data', 'file=/tmp/tmp23jcm_a1/1e080g9b.json', 'init=/tmp/tmp23jcm_a1/zucl05ne.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelh0kyamrr/prophet_model-20250731121017.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:17.301+0000] {logging_mixin.py:188} WARNING - 12:10:17 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:17.301+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:17.393+0000] {logging_mixin.py:188} WARNING - 12:10:17 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:17.393+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:17.399+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:17.399+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:17.400+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5757f10>
+[2025-07-31T12:10:17.507+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/95zcbpup.json
+[2025-07-31T12:10:17.600+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/dqi29kqu.json
+[2025-07-31T12:10:17.602+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:17.604+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:17.605+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=2952', 'data', 'file=/tmp/tmp23jcm_a1/95zcbpup.json', 'init=/tmp/tmp23jcm_a1/dqi29kqu.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelx1usuhix/prophet_model-20250731121017.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:17.607+0000] {logging_mixin.py:188} WARNING - 12:10:17 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:17.606+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:17.687+0000] {logging_mixin.py:188} WARNING - 12:10:17 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:17.687+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:17.778+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:17.845+0000] {logging_mixin.py:188} INFO - Test 16/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:17.868+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/tg3ld5yf.json
+[2025-07-31T12:10:17.969+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/7hnfowuj.json
+[2025-07-31T12:10:17.974+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:17.975+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:17.976+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=76230', 'data', 'file=/tmp/tmp23jcm_a1/tg3ld5yf.json', 'init=/tmp/tmp23jcm_a1/7hnfowuj.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model1z1q4__m/prophet_model-20250731121017.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:17.977+0000] {logging_mixin.py:188} WARNING - 12:10:17 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:17.976+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:18.060+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:18.060+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:18.066+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:18.067+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:18.068+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db55b46d0>
+[2025-07-31T12:10:18.197+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/hm14k5pc.json
+[2025-07-31T12:10:18.272+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/xndzoony.json
+[2025-07-31T12:10:18.274+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:18.275+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:18.276+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=53542', 'data', 'file=/tmp/tmp23jcm_a1/hm14k5pc.json', 'init=/tmp/tmp23jcm_a1/xndzoony.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelfh4hyl0d/prophet_model-20250731121018.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:18.276+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:18.276+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:18.361+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:18.361+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:18.442+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:18.491+0000] {logging_mixin.py:188} INFO - Test 17/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:18.511+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/x15_9df1.json
+[2025-07-31T12:10:18.597+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/zm66hvib.json
+[2025-07-31T12:10:18.602+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:18.603+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:18.603+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=69556', 'data', 'file=/tmp/tmp23jcm_a1/x15_9df1.json', 'init=/tmp/tmp23jcm_a1/zm66hvib.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelmx_cprrr/prophet_model-20250731121018.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:18.604+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:18.604+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:18.667+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:18.666+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:18.675+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:18.676+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:18.678+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54ab7d0>
+[2025-07-31T12:10:18.793+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/uzahfaox.json
+[2025-07-31T12:10:18.862+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/854bkxf2.json
+[2025-07-31T12:10:18.866+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:18.867+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:18.868+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=31447', 'data', 'file=/tmp/tmp23jcm_a1/uzahfaox.json', 'init=/tmp/tmp23jcm_a1/854bkxf2.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model18eokarc/prophet_model-20250731121018.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:18.869+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:18.868+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:18.910+0000] {logging_mixin.py:188} WARNING - 12:10:18 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:18.910+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:18.987+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:19.038+0000] {logging_mixin.py:188} INFO - Test 18/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:19.058+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/bf40g295.json
+[2025-07-31T12:10:19.175+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_nbfx08i.json
+[2025-07-31T12:10:19.180+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:19.181+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:19.181+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=90920', 'data', 'file=/tmp/tmp23jcm_a1/bf40g295.json', 'init=/tmp/tmp23jcm_a1/_nbfx08i.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelzzhmwysz/prophet_model-20250731121019.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:19.182+0000] {logging_mixin.py:188} WARNING - 12:10:19 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:19.182+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:19.291+0000] {logging_mixin.py:188} WARNING - 12:10:19 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:19.291+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:19.299+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:19.299+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:19.301+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5313250>
+[2025-07-31T12:10:19.429+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/rtz2xrta.json
+[2025-07-31T12:10:19.500+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/o7w4mhj4.json
+[2025-07-31T12:10:19.505+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:19.506+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:19.506+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=12363', 'data', 'file=/tmp/tmp23jcm_a1/rtz2xrta.json', 'init=/tmp/tmp23jcm_a1/o7w4mhj4.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model9nc9o1a3/prophet_model-20250731121019.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:19.507+0000] {logging_mixin.py:188} WARNING - 12:10:19 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:19.507+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:19.565+0000] {logging_mixin.py:188} WARNING - 12:10:19 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:19.565+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:19.648+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:19.703+0000] {logging_mixin.py:188} INFO - 
+Meilleurs hyperparamètres :
+[2025-07-31T12:10:19.704+0000] {logging_mixin.py:188} INFO - {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:19.705+0000] {logging_mixin.py:188} INFO - RMSE = 0.1008
+[2025-07-31T12:10:19.748+0000] {logging_mixin.py:188} INFO - Test 1/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:19.773+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/s9l6bj6s.json
+[2025-07-31T12:10:19.875+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/cyifekcd.json
+[2025-07-31T12:10:19.879+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:19.880+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:19.880+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=86556', 'data', 'file=/tmp/tmp23jcm_a1/s9l6bj6s.json', 'init=/tmp/tmp23jcm_a1/cyifekcd.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelv1o2z5sr/prophet_model-20250731121019.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:19.881+0000] {logging_mixin.py:188} WARNING - 12:10:19 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:19.881+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:19.933+0000] {logging_mixin.py:188} WARNING - 12:10:19 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:19.933+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:19.939+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:19.940+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:19.941+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db589fdd0>
+[2025-07-31T12:10:20.054+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/o9z2eued.json
+[2025-07-31T12:10:20.131+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/mq1e615v.json
+[2025-07-31T12:10:20.136+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:20.136+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:20.137+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=15767', 'data', 'file=/tmp/tmp23jcm_a1/o9z2eued.json', 'init=/tmp/tmp23jcm_a1/mq1e615v.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model7kbfuo1r/prophet_model-20250731121020.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:20.138+0000] {logging_mixin.py:188} WARNING - 12:10:20 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:20.137+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:20.196+0000] {logging_mixin.py:188} WARNING - 12:10:20 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:20.196+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:20.273+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:20.327+0000] {logging_mixin.py:188} INFO - Test 2/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:20.347+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/fl8r9t16.json
+[2025-07-31T12:10:20.447+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/s8fcf2_1.json
+[2025-07-31T12:10:20.452+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:20.453+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:20.454+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=5695', 'data', 'file=/tmp/tmp23jcm_a1/fl8r9t16.json', 'init=/tmp/tmp23jcm_a1/s8fcf2_1.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelmlpflmj0/prophet_model-20250731121020.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:20.454+0000] {logging_mixin.py:188} WARNING - 12:10:20 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:20.454+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:20.533+0000] {logging_mixin.py:188} WARNING - 12:10:20 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:20.532+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:20.540+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:20.541+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:20.542+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5348c10>
+[2025-07-31T12:10:20.672+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/zodn3gl7.json
+[2025-07-31T12:10:20.748+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/64hl05l7.json
+[2025-07-31T12:10:20.750+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:20.751+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:20.752+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=48011', 'data', 'file=/tmp/tmp23jcm_a1/zodn3gl7.json', 'init=/tmp/tmp23jcm_a1/64hl05l7.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelxz_aqmoj/prophet_model-20250731121020.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:20.753+0000] {logging_mixin.py:188} WARNING - 12:10:20 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:20.752+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:20.810+0000] {logging_mixin.py:188} WARNING - 12:10:20 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:20.809+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:20.896+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:20.947+0000] {logging_mixin.py:188} INFO - Test 3/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:20.969+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/4os56b4h.json
+[2025-07-31T12:10:21.054+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/hrmkr7fw.json
+[2025-07-31T12:10:21.060+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:21.061+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:21.061+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=66204', 'data', 'file=/tmp/tmp23jcm_a1/4os56b4h.json', 'init=/tmp/tmp23jcm_a1/hrmkr7fw.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelyzgpeo0v/prophet_model-20250731121021.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:21.062+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:21.062+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:21.129+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:21.129+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:21.138+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:21.139+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:21.140+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db565e650>
+[2025-07-31T12:10:21.267+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/971_rtwf.json
+[2025-07-31T12:10:21.340+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/iefl9vuu.json
+[2025-07-31T12:10:21.342+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:21.342+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:21.343+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=49340', 'data', 'file=/tmp/tmp23jcm_a1/971_rtwf.json', 'init=/tmp/tmp23jcm_a1/iefl9vuu.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelj7t4_t61/prophet_model-20250731121021.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:21.344+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:21.343+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:21.405+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:21.404+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:21.482+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:21.531+0000] {logging_mixin.py:188} INFO - Test 4/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:21.552+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ki5d9frl.json
+[2025-07-31T12:10:21.637+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/lirgpso6.json
+[2025-07-31T12:10:21.642+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:21.643+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:21.643+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=25155', 'data', 'file=/tmp/tmp23jcm_a1/ki5d9frl.json', 'init=/tmp/tmp23jcm_a1/lirgpso6.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modely5lg0bsz/prophet_model-20250731121021.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:21.644+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:21.644+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:21.709+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:21.709+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:21.716+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:21.717+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:21.718+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54ace10>
+[2025-07-31T12:10:21.841+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/2i0cff1r.json
+[2025-07-31T12:10:21.919+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/oskbvpl2.json
+[2025-07-31T12:10:21.921+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:21.922+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:21.923+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=72299', 'data', 'file=/tmp/tmp23jcm_a1/2i0cff1r.json', 'init=/tmp/tmp23jcm_a1/oskbvpl2.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelehsy0xyf/prophet_model-20250731121021.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:21.924+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:21.924+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:21.968+0000] {logging_mixin.py:188} WARNING - 12:10:21 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:21.967+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:22.055+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:22.116+0000] {logging_mixin.py:188} INFO - Test 5/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:22.139+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_d3xrx_k.json
+[2025-07-31T12:10:22.220+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/cp4rrg3r.json
+[2025-07-31T12:10:22.225+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:22.226+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:22.227+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=59668', 'data', 'file=/tmp/tmp23jcm_a1/_d3xrx_k.json', 'init=/tmp/tmp23jcm_a1/cp4rrg3r.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model4wz7ht3p/prophet_model-20250731121022.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:22.228+0000] {logging_mixin.py:188} WARNING - 12:10:22 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:22.228+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:22.303+0000] {logging_mixin.py:188} WARNING - 12:10:22 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:22.303+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:22.310+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:22.311+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:22.312+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5732e90>
+[2025-07-31T12:10:22.443+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/1i7gur11.json
+[2025-07-31T12:10:22.521+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/uam4egl2.json
+[2025-07-31T12:10:22.526+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:22.526+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:22.527+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=94393', 'data', 'file=/tmp/tmp23jcm_a1/1i7gur11.json', 'init=/tmp/tmp23jcm_a1/uam4egl2.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelov22ms3r/prophet_model-20250731121022.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:22.528+0000] {logging_mixin.py:188} WARNING - 12:10:22 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:22.528+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:22.583+0000] {logging_mixin.py:188} WARNING - 12:10:22 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:22.583+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:22.672+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:22.727+0000] {logging_mixin.py:188} INFO - Test 6/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:22.751+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_vpm2w5b.json
+[2025-07-31T12:10:22.848+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/opg32ua6.json
+[2025-07-31T12:10:22.854+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:22.855+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:22.856+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=80779', 'data', 'file=/tmp/tmp23jcm_a1/_vpm2w5b.json', 'init=/tmp/tmp23jcm_a1/opg32ua6.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelujmstono/prophet_model-20250731121022.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:22.857+0000] {logging_mixin.py:188} WARNING - 12:10:22 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:22.857+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:22.940+0000] {logging_mixin.py:188} WARNING - 12:10:22 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:22.940+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:22.947+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:22.948+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:22.949+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db583e9d0>
+[2025-07-31T12:10:23.118+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/kt94ozif.json
+[2025-07-31T12:10:23.217+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/h98smh_g.json
+[2025-07-31T12:10:23.219+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:23.220+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:23.221+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=24435', 'data', 'file=/tmp/tmp23jcm_a1/kt94ozif.json', 'init=/tmp/tmp23jcm_a1/h98smh_g.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model66p5c2og/prophet_model-20250731121023.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:23.222+0000] {logging_mixin.py:188} WARNING - 12:10:23 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:23.221+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:23.269+0000] {logging_mixin.py:188} WARNING - 12:10:23 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:23.269+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:23.349+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:23.398+0000] {logging_mixin.py:188} INFO - Test 7/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:23.419+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/h5u4g_9z.json
+[2025-07-31T12:10:23.512+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/dtngrggv.json
+[2025-07-31T12:10:23.517+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:23.518+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:23.519+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=70460', 'data', 'file=/tmp/tmp23jcm_a1/h5u4g_9z.json', 'init=/tmp/tmp23jcm_a1/dtngrggv.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model3hsuiign/prophet_model-20250731121023.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:23.519+0000] {logging_mixin.py:188} WARNING - 12:10:23 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:23.519+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:23.587+0000] {logging_mixin.py:188} WARNING - 12:10:23 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:23.587+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:23.594+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:23.594+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:23.595+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5386950>
+[2025-07-31T12:10:23.714+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/2m9vi_nu.json
+[2025-07-31T12:10:23.794+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/bgtn2e3w.json
+[2025-07-31T12:10:23.798+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:23.799+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:23.800+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=85505', 'data', 'file=/tmp/tmp23jcm_a1/2m9vi_nu.json', 'init=/tmp/tmp23jcm_a1/bgtn2e3w.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_models_fi2vvw/prophet_model-20250731121023.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:23.801+0000] {logging_mixin.py:188} WARNING - 12:10:23 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:23.801+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:23.855+0000] {logging_mixin.py:188} WARNING - 12:10:23 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:23.855+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:23.942+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:23.989+0000] {logging_mixin.py:188} INFO - Test 8/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:24.012+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/he7gti5a.json
+[2025-07-31T12:10:24.095+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/3szcowl3.json
+[2025-07-31T12:10:24.100+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:24.101+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:24.101+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=5426', 'data', 'file=/tmp/tmp23jcm_a1/he7gti5a.json', 'init=/tmp/tmp23jcm_a1/3szcowl3.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelvempx483/prophet_model-20250731121024.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:24.102+0000] {logging_mixin.py:188} WARNING - 12:10:24 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:24.102+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:24.178+0000] {logging_mixin.py:188} WARNING - 12:10:24 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:24.178+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:24.185+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:24.186+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:24.187+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db550a750>
+[2025-07-31T12:10:24.316+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ja8aypce.json
+[2025-07-31T12:10:24.396+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/fqxxhodd.json
+[2025-07-31T12:10:24.401+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:24.402+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:24.402+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=30613', 'data', 'file=/tmp/tmp23jcm_a1/ja8aypce.json', 'init=/tmp/tmp23jcm_a1/fqxxhodd.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modeloxd9vr5z/prophet_model-20250731121024.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:24.403+0000] {logging_mixin.py:188} WARNING - 12:10:24 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:24.403+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:24.476+0000] {logging_mixin.py:188} WARNING - 12:10:24 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:24.476+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:24.562+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:24.616+0000] {logging_mixin.py:188} INFO - Test 9/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:24.635+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/i9k76wyl.json
+[2025-07-31T12:10:24.726+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/6no7_c4c.json
+[2025-07-31T12:10:24.730+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:24.732+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:24.732+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=62785', 'data', 'file=/tmp/tmp23jcm_a1/i9k76wyl.json', 'init=/tmp/tmp23jcm_a1/6no7_c4c.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelybxiznzf/prophet_model-20250731121024.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:24.733+0000] {logging_mixin.py:188} WARNING - 12:10:24 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:24.733+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:24.806+0000] {logging_mixin.py:188} WARNING - 12:10:24 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:24.806+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:24.812+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:24.813+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:24.814+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5203590>
+[2025-07-31T12:10:24.946+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/9hkyzhno.json
+[2025-07-31T12:10:25.020+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/46gbbxun.json
+[2025-07-31T12:10:25.025+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:25.025+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:25.026+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=62029', 'data', 'file=/tmp/tmp23jcm_a1/9hkyzhno.json', 'init=/tmp/tmp23jcm_a1/46gbbxun.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelrocl53n5/prophet_model-20250731121025.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:25.027+0000] {logging_mixin.py:188} WARNING - 12:10:25 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:25.026+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:25.112+0000] {logging_mixin.py:188} WARNING - 12:10:25 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:25.112+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:25.194+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:25.243+0000] {logging_mixin.py:188} INFO - Test 10/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:25.263+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/pabq8edt.json
+[2025-07-31T12:10:25.347+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/1lm9iv8a.json
+[2025-07-31T12:10:25.352+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:25.353+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:25.353+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=18526', 'data', 'file=/tmp/tmp23jcm_a1/pabq8edt.json', 'init=/tmp/tmp23jcm_a1/1lm9iv8a.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelakwzzazm/prophet_model-20250731121025.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:25.354+0000] {logging_mixin.py:188} WARNING - 12:10:25 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:25.354+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:25.451+0000] {logging_mixin.py:188} WARNING - 12:10:25 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:25.451+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:25.464+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:25.465+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:25.468+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db55df410>
+[2025-07-31T12:10:25.606+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/nx0uhvg1.json
+[2025-07-31T12:10:25.684+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/pyiwt4jw.json
+[2025-07-31T12:10:25.686+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:25.686+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:25.687+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=59243', 'data', 'file=/tmp/tmp23jcm_a1/nx0uhvg1.json', 'init=/tmp/tmp23jcm_a1/pyiwt4jw.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelyaarlr_e/prophet_model-20250731121025.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:25.688+0000] {logging_mixin.py:188} WARNING - 12:10:25 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:25.688+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:25.741+0000] {logging_mixin.py:188} WARNING - 12:10:25 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:25.741+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:25.830+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:25.886+0000] {logging_mixin.py:188} INFO - Test 11/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:25.909+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/94isfh27.json
+[2025-07-31T12:10:26.014+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/934_626f.json
+[2025-07-31T12:10:26.016+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:26.017+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:26.018+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=9354', 'data', 'file=/tmp/tmp23jcm_a1/94isfh27.json', 'init=/tmp/tmp23jcm_a1/934_626f.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model7qptk6vp/prophet_model-20250731121026.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:26.019+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:26.019+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:26.133+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:26.133+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:26.140+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:26.141+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:26.143+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db58df9d0>
+[2025-07-31T12:10:26.278+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/4x6brq93.json
+[2025-07-31T12:10:26.347+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/jre2gc0g.json
+[2025-07-31T12:10:26.349+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:26.350+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:26.351+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=89448', 'data', 'file=/tmp/tmp23jcm_a1/4x6brq93.json', 'init=/tmp/tmp23jcm_a1/jre2gc0g.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelf0kcucax/prophet_model-20250731121026.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:26.352+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:26.351+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:26.434+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:26.434+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:26.509+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:26.561+0000] {logging_mixin.py:188} INFO - Test 12/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:26.583+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/969b4sw8.json
+[2025-07-31T12:10:26.665+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_5xrbjil.json
+[2025-07-31T12:10:26.669+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:26.670+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:26.671+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=88281', 'data', 'file=/tmp/tmp23jcm_a1/969b4sw8.json', 'init=/tmp/tmp23jcm_a1/_5xrbjil.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model3n4yji1o/prophet_model-20250731121026.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:26.671+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:26.671+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:26.758+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:26.758+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:26.764+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:26.765+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:26.767+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db554b510>
+[2025-07-31T12:10:26.907+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/s0r8pa22.json
+[2025-07-31T12:10:26.993+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/9abba_v6.json
+[2025-07-31T12:10:26.996+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:26.997+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:26.997+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=30668', 'data', 'file=/tmp/tmp23jcm_a1/s0r8pa22.json', 'init=/tmp/tmp23jcm_a1/9abba_v6.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model5tfsra6g/prophet_model-20250731121026.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:26.998+0000] {logging_mixin.py:188} WARNING - 12:10:26 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:26.998+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:27.060+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:27.060+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:27.139+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:27.189+0000] {logging_mixin.py:188} INFO - Test 13/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:27.210+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/43kys8pp.json
+[2025-07-31T12:10:27.297+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/xf360mc6.json
+[2025-07-31T12:10:27.302+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:27.302+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:27.303+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=86646', 'data', 'file=/tmp/tmp23jcm_a1/43kys8pp.json', 'init=/tmp/tmp23jcm_a1/xf360mc6.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modeljmfl8zm2/prophet_model-20250731121027.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:27.304+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:27.303+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:27.350+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:27.349+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:27.356+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:27.357+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:27.359+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db54e4bd0>
+[2025-07-31T12:10:27.509+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ptob0u4z.json
+[2025-07-31T12:10:27.586+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/cmzio9j5.json
+[2025-07-31T12:10:27.591+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:27.592+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:27.592+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=3731', 'data', 'file=/tmp/tmp23jcm_a1/ptob0u4z.json', 'init=/tmp/tmp23jcm_a1/cmzio9j5.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelc4g3akoy/prophet_model-20250731121027.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:27.593+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:27.593+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:27.648+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:27.648+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:27.727+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:27.780+0000] {logging_mixin.py:188} INFO - Test 14/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:27.801+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/y124yp3t.json
+[2025-07-31T12:10:27.887+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/w0bvv7x8.json
+[2025-07-31T12:10:27.892+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:27.892+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:27.893+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=93893', 'data', 'file=/tmp/tmp23jcm_a1/y124yp3t.json', 'init=/tmp/tmp23jcm_a1/w0bvv7x8.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelyxt5kafd/prophet_model-20250731121027.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:27.893+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:27.893+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:27.952+0000] {logging_mixin.py:188} WARNING - 12:10:27 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:27.952+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:27.959+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:27.960+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:27.962+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db542d9d0>
+[2025-07-31T12:10:28.083+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/zl65moit.json
+[2025-07-31T12:10:28.170+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/enjwfck4.json
+[2025-07-31T12:10:28.173+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:28.173+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:28.174+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=51149', 'data', 'file=/tmp/tmp23jcm_a1/zl65moit.json', 'init=/tmp/tmp23jcm_a1/enjwfck4.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model77d2ld4j/prophet_model-20250731121028.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:28.175+0000] {logging_mixin.py:188} WARNING - 12:10:28 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:28.175+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:28.226+0000] {logging_mixin.py:188} WARNING - 12:10:28 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:28.226+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:28.314+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:28.377+0000] {logging_mixin.py:188} INFO - Test 15/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:28.398+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/d_thhctu.json
+[2025-07-31T12:10:28.485+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/8lilk88u.json
+[2025-07-31T12:10:28.490+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:28.491+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:28.492+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=80092', 'data', 'file=/tmp/tmp23jcm_a1/d_thhctu.json', 'init=/tmp/tmp23jcm_a1/8lilk88u.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model39r637gs/prophet_model-20250731121028.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:28.492+0000] {logging_mixin.py:188} WARNING - 12:10:28 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:28.492+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:28.544+0000] {logging_mixin.py:188} WARNING - 12:10:28 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:28.544+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:28.552+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:28.553+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:28.554+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db527cb50>
+[2025-07-31T12:10:28.676+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/ja291h1a.json
+[2025-07-31T12:10:28.747+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/94k8ld8g.json
+[2025-07-31T12:10:28.752+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:28.753+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:28.754+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=92238', 'data', 'file=/tmp/tmp23jcm_a1/ja291h1a.json', 'init=/tmp/tmp23jcm_a1/94k8ld8g.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model52rdci3u/prophet_model-20250731121028.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:28.755+0000] {logging_mixin.py:188} WARNING - 12:10:28 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:28.755+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:28.839+0000] {logging_mixin.py:188} WARNING - 12:10:28 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:28.839+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:28.922+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:28.972+0000] {logging_mixin.py:188} INFO - Test 16/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:28.998+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/_hvyqnwl.json
+[2025-07-31T12:10:29.085+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/zsj5w912.json
+[2025-07-31T12:10:29.090+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:29.090+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:29.091+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=58613', 'data', 'file=/tmp/tmp23jcm_a1/_hvyqnwl.json', 'init=/tmp/tmp23jcm_a1/zsj5w912.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelckpj3v79/prophet_model-20250731121029.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:29.092+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:29.091+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:29.163+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:29.163+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:29.169+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:29.170+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:29.172+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db53876d0>
+[2025-07-31T12:10:29.296+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/8ommqc1v.json
+[2025-07-31T12:10:29.377+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/pqslhir3.json
+[2025-07-31T12:10:29.379+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:29.380+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:29.381+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=25167', 'data', 'file=/tmp/tmp23jcm_a1/8ommqc1v.json', 'init=/tmp/tmp23jcm_a1/pqslhir3.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modelatp0723k/prophet_model-20250731121029.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:29.382+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:29.381+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:29.453+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:29.453+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:29.535+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:29.597+0000] {logging_mixin.py:188} INFO - Test 17/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:10:29.622+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/dq46cvjx.json
+[2025-07-31T12:10:29.707+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/29wxfpe_.json
+[2025-07-31T12:10:29.713+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:29.714+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:29.714+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=56374', 'data', 'file=/tmp/tmp23jcm_a1/dq46cvjx.json', 'init=/tmp/tmp23jcm_a1/29wxfpe_.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model7bl2kznc/prophet_model-20250731121029.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:29.715+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:29.715+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:29.772+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:29.772+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:29.778+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:29.779+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:29.780+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5406750>
+[2025-07-31T12:10:29.893+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/j32_99ib.json
+[2025-07-31T12:10:29.973+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/fqo1s7xi.json
+[2025-07-31T12:10:29.978+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:29.979+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:29.979+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=6765', 'data', 'file=/tmp/tmp23jcm_a1/j32_99ib.json', 'init=/tmp/tmp23jcm_a1/fqo1s7xi.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model_5n2n4br/prophet_model-20250731121029.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:29.980+0000] {logging_mixin.py:188} WARNING - 12:10:29 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:29.980+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:30.073+0000] {logging_mixin.py:188} WARNING - 12:10:30 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:30.072+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:30.152+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:30.204+0000] {logging_mixin.py:188} INFO - Test 18/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:30.224+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/j35m7sj6.json
+[2025-07-31T12:10:30.309+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/bwdl9u0d.json
+[2025-07-31T12:10:30.314+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:30.315+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:30.315+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=87367', 'data', 'file=/tmp/tmp23jcm_a1/j35m7sj6.json', 'init=/tmp/tmp23jcm_a1/bwdl9u0d.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_modely2q5xihe/prophet_model-20250731121030.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:30.316+0000] {logging_mixin.py:188} WARNING - 12:10:30 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:30.316+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:30.381+0000] {logging_mixin.py:188} WARNING - 12:10:30 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:30.381+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:30.389+0000] {diagnostics.py:55} INFO - Making 1 forecasts with cutoffs between 2023-01-28 23:00:00 and 2023-01-28 23:00:00
+[2025-07-31T12:10:30.389+0000] {diagnostics.py:170} WARNING - Seasonality has period of 365.25 days which is larger than initial window. Consider increasing initial.
+[2025-07-31T12:10:30.391+0000] {diagnostics.py:199} INFO - Applying in parallel with <concurrent.futures.process.ProcessPoolExecutor object at 0x791db5533e90>
+[2025-07-31T12:10:30.514+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/qy4mcm5e.json
+[2025-07-31T12:10:30.584+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmp23jcm_a1/2h512qgh.json
+[2025-07-31T12:10:30.589+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:10:30.590+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:10:30.590+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=17685', 'data', 'file=/tmp/tmp23jcm_a1/qy4mcm5e.json', 'init=/tmp/tmp23jcm_a1/2h512qgh.json', 'output', 'file=/tmp/tmp23jcm_a1/prophet_model6htp9nn0/prophet_model-20250731121030.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:10:30.592+0000] {logging_mixin.py:188} WARNING - 12:10:30 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:10:30.591+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:10:30.663+0000] {logging_mixin.py:188} WARNING - 12:10:30 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:10:30.663+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:10:30.753+0000] {diagnostics.py:391} INFO - Skipping MAPE because y close to 0
+[2025-07-31T12:10:30.804+0000] {logging_mixin.py:188} INFO - 
+Meilleurs hyperparamètres :
+[2025-07-31T12:10:30.805+0000] {logging_mixin.py:188} INFO - {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:10:30.805+0000] {logging_mixin.py:188} INFO - RMSE = 0.1622
+[2025-07-31T12:10:30.829+0000] {logging_mixin.py:188} INFO - Modèles Prophet optimisés et sauvegardés pour la date 2023-08-03
+[2025-07-31T12:10:30.831+0000] {logging_mixin.py:188} INFO - [DEBUG] Training data date range: 2023-01-01 00:00:00 → 2023-02-04 23:00:00 (n=840)
+[2025-07-31T12:10:30.833+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-31T12:10:30.835+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T12:10:30.856+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=solar_ai_pipeline_2, task_id=train_prophet, run_id=scheduled__2023-08-03T00:00:00+00:00, execution_date=20230803T000000, start_date=20250731T121005, end_date=20250731T121030
+[2025-07-31T12:10:30.989+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-31T12:10:31.117+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T12:10:31.148+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

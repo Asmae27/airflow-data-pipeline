@@ -1,0 +1,38 @@
+[2025-07-29T16:26:06.142+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-29T16:26:06.188+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-03-26T00:00:00+00:00 [queued]>
+[2025-07-29T16:26:06.205+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-03-26T00:00:00+00:00 [queued]>
+[2025-07-29T16:26:06.206+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-29T16:26:06.252+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_prophet> on 2023-03-26 00:00:00+00:00
+[2025-07-29T16:26:06.256+0000] {standard_task_runner.py:63} INFO - Started process 7000 to run task
+[2025-07-29T16:26:06.261+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'train_prophet', 'scheduled__2023-03-26T00:00:00+00:00', '--job-id', '1668', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmpn8edaalk']
+[2025-07-29T16:26:06.264+0000] {standard_task_runner.py:91} INFO - Job 1668: Subtask train_prophet
+[2025-07-29T16:26:06.387+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-03-26T00:00:00+00:00 [running]> on host 4c586ddbbbe9
+[2025-07-29T16:26:06.565+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='train_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-03-26T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-26T00:00:00+00:00'
+[2025-07-29T16:26:06.566+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-29T16:26:07.317+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-29T16:26:07.324+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-29T16:26:07.324+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/train_prophet.py", line 73, in train_prophet
+    raise ValueError(f"Not enough data to train. train_start={train_start}, train_end={train_end}")
+ValueError: Not enough data to train. train_start=2023-01-01, train_end=2022-09-27
+[2025-07-29T16:26:07.344+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=solar_ai_pipeline_2, task_id=train_prophet, run_id=scheduled__2023-03-26T00:00:00+00:00, execution_date=20230326T000000, start_date=20250729T162606, end_date=20250729T162607
+[2025-07-29T16:26:07.397+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1668 for task train_prophet (Not enough data to train. train_start=2023-01-01, train_end=2022-09-27; 7000)
+[2025-07-29T16:26:07.438+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-29T16:26:07.475+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-29T16:26:07.478+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

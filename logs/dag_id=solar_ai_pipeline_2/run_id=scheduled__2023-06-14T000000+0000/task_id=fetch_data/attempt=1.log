@@ -1,0 +1,18 @@
+[2025-07-31T07:56:41.219+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T07:56:41.314+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.fetch_data scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2025-07-31T07:56:41.352+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.fetch_data scheduled__2023-06-14T00:00:00+00:00 [queued]>
+[2025-07-31T07:56:41.356+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-31T07:56:41.455+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_data> on 2023-06-14 00:00:00+00:00
+[2025-07-31T07:56:41.466+0000] {standard_task_runner.py:63} INFO - Started process 2130 to run task
+[2025-07-31T07:56:41.477+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'fetch_data', 'scheduled__2023-06-14T00:00:00+00:00', '--job-id', '1984', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmpg7_df50z']
+[2025-07-31T07:56:41.484+0000] {standard_task_runner.py:91} INFO - Job 1984: Subtask fetch_data
+[2025-07-31T07:56:41.766+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.fetch_data scheduled__2023-06-14T00:00:00+00:00 [running]> on host 4c586ddbbbe9
+[2025-07-31T07:56:42.132+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='fetch_data' AIRFLOW_CTX_EXECUTION_DATE='2023-06-14T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-06-14T00:00:00+00:00'
+[2025-07-31T07:56:42.135+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T07:56:52.367+0000] {logging_mixin.py:188} INFO - Données simulées pour 2023-06-14 sauvegardées dans dags/data/processed/simulated_solar_heating_2023-06-14.csv
+[2025-07-31T07:56:52.370+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-07-31T07:56:52.372+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T07:56:52.402+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=solar_ai_pipeline_2, task_id=fetch_data, run_id=scheduled__2023-06-14T00:00:00+00:00, execution_date=20230614T000000, start_date=20250731T075641, end_date=20250731T075652
+[2025-07-31T07:56:52.529+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-07-31T07:56:52.645+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T07:56:52.677+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

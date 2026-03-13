@@ -1,0 +1,39 @@
+[2025-07-29T14:16:41.055+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-29T14:16:41.088+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.fetch_data scheduled__2023-01-03T00:00:00+00:00 [queued]>
+[2025-07-29T14:16:41.102+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.fetch_data scheduled__2023-01-03T00:00:00+00:00 [queued]>
+[2025-07-29T14:16:41.103+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-29T14:16:41.148+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): fetch_data> on 2023-01-03 00:00:00+00:00
+[2025-07-29T14:16:41.152+0000] {standard_task_runner.py:63} INFO - Started process 141 to run task
+[2025-07-29T14:16:41.155+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'fetch_data', 'scheduled__2023-01-03T00:00:00+00:00', '--job-id', '1259', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmpcdz7rrvz']
+[2025-07-29T14:16:41.158+0000] {standard_task_runner.py:91} INFO - Job 1259: Subtask fetch_data
+[2025-07-29T14:16:41.270+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.fetch_data scheduled__2023-01-03T00:00:00+00:00 [running]> on host 63c65cd97f20
+[2025-07-29T14:16:41.411+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='fetch_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-03T00:00:00+00:00'
+[2025-07-29T14:16:41.412+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-29T14:16:41.818+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-29T14:16:41.819+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/prophet_pipeline.py", line 25, in fetch_and_simulate
+    simulate_solar_data(exec_date)
+  File "/opt/airflow/dags/scripts/fetch_data.py", line 7, in simulate_solar_data
+    from astral.sun import sun
+ModuleNotFoundError: No module named 'astral'
+[2025-07-29T14:16:41.843+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=solar_ai_pipeline_2, task_id=fetch_data, run_id=scheduled__2023-01-03T00:00:00+00:00, execution_date=20230103T000000, start_date=20250729T141641, end_date=20250729T141641
+[2025-07-29T14:16:41.919+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1259 for task fetch_data (No module named 'astral'; 141)
+[2025-07-29T14:16:41.972+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-29T14:16:42.007+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-29T14:16:42.010+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

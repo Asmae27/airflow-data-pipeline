@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  sleek-airflow:
+    build:
+      context: .
+      dockerfile: dockerfile
+    
+    image: sleek-airflow:latest
+
+    volumes:
+      - ./airflow:/opt/airflow
+      - ./logs:/opt/airflow/logs
+
+    ports:
+      - "8080:8080"
+
+    command: airflow standalone
+  

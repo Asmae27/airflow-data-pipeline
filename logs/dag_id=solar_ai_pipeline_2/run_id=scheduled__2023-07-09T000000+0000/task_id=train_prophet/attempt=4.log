@@ -1,0 +1,241 @@
+[2025-07-31T12:01:36.462+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T12:01:36.558+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-07-09T00:00:00+00:00 [queued]>
+[2025-07-31T12:01:36.597+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-07-09T00:00:00+00:00 [queued]>
+[2025-07-31T12:01:36.601+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2025-07-31T12:01:36.658+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): train_prophet> on 2023-07-09 00:00:00+00:00
+[2025-07-31T12:01:36.664+0000] {standard_task_runner.py:63} INFO - Started process 4233 to run task
+[2025-07-31T12:01:36.668+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'train_prophet', 'scheduled__2023-07-09T00:00:00+00:00', '--job-id', '2925', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmpk25ys6tq']
+[2025-07-31T12:01:36.671+0000] {standard_task_runner.py:91} INFO - Job 2925: Subtask train_prophet
+[2025-07-31T12:01:36.891+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.train_prophet scheduled__2023-07-09T00:00:00+00:00 [running]> on host a2a0dd314bdc
+[2025-07-31T12:01:37.110+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='train_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-07-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-07-09T00:00:00+00:00'
+[2025-07-31T12:01:37.111+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T12:01:38.001+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-31T12:01:38.009+0000] {logging_mixin.py:188} INFO - Training from 2023-01-01 to 2023-01-10
+[2025-07-31T12:01:38.186+0000] {logging_mixin.py:188} INFO - Test 1/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:38.256+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/yrpdmv1y.json
+[2025-07-31T12:01:38.292+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/krwmuc5o.json
+[2025-07-31T12:01:38.294+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.295+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.296+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=40057', 'data', 'file=/tmp/tmpis1aah28/yrpdmv1y.json', 'init=/tmp/tmpis1aah28/krwmuc5o.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelcea6ls7x/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.296+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.296+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.333+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.333+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.339+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.339+0000] {logging_mixin.py:188} INFO - Test 2/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:38.364+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/73rmf_t_.json
+[2025-07-31T12:01:38.391+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/j5h0i6ua.json
+[2025-07-31T12:01:38.393+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.393+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.394+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=20166', 'data', 'file=/tmp/tmpis1aah28/73rmf_t_.json', 'init=/tmp/tmpis1aah28/j5h0i6ua.json', 'output', 'file=/tmp/tmpis1aah28/prophet_model8mrvfeah/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.395+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.394+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.424+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.424+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.427+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.428+0000] {logging_mixin.py:188} INFO - Test 3/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:38.444+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/lv76ra5e.json
+[2025-07-31T12:01:38.471+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/kmcpouqo.json
+[2025-07-31T12:01:38.473+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.473+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.474+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=86803', 'data', 'file=/tmp/tmpis1aah28/lv76ra5e.json', 'init=/tmp/tmpis1aah28/kmcpouqo.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelf8zx29rn/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.474+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.474+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.498+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.498+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.502+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.503+0000] {logging_mixin.py:188} INFO - Test 4/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:38.520+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/ysl5_117.json
+[2025-07-31T12:01:38.548+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/ehy8xbky.json
+[2025-07-31T12:01:38.549+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.550+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.550+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=80819', 'data', 'file=/tmp/tmpis1aah28/ysl5_117.json', 'init=/tmp/tmpis1aah28/ehy8xbky.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelqz8nl4u9/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.551+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.551+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.592+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.592+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.596+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.596+0000] {logging_mixin.py:188} INFO - Test 5/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:38.612+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/s9af30at.json
+[2025-07-31T12:01:38.640+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/q3wgv04v.json
+[2025-07-31T12:01:38.641+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.641+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.642+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=58194', 'data', 'file=/tmp/tmpis1aah28/s9af30at.json', 'init=/tmp/tmpis1aah28/q3wgv04v.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelc4kky_us/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.643+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.643+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.667+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.667+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.670+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.671+0000] {logging_mixin.py:188} INFO - Test 6/18: {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:38.686+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/qrx5e_vp.json
+[2025-07-31T12:01:38.712+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/xbu7he_t.json
+[2025-07-31T12:01:38.714+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.714+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.715+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=71954', 'data', 'file=/tmp/tmpis1aah28/qrx5e_vp.json', 'init=/tmp/tmpis1aah28/xbu7he_t.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelwl_bin6d/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.716+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.715+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.750+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.750+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.753+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.01, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.754+0000] {logging_mixin.py:188} INFO - Test 7/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:38.769+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/ritebzd8.json
+[2025-07-31T12:01:38.796+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/4htoq2wa.json
+[2025-07-31T12:01:38.798+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.798+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.799+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=93505', 'data', 'file=/tmp/tmpis1aah28/ritebzd8.json', 'init=/tmp/tmpis1aah28/4htoq2wa.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelhx_59wpl/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.799+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.799+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.827+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.827+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.832+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.833+0000] {logging_mixin.py:188} INFO - Test 8/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:38.850+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/w522nfc1.json
+[2025-07-31T12:01:38.879+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/7g04oksg.json
+[2025-07-31T12:01:38.881+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.881+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.882+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=31477', 'data', 'file=/tmp/tmpis1aah28/w522nfc1.json', 'init=/tmp/tmpis1aah28/7g04oksg.json', 'output', 'file=/tmp/tmpis1aah28/prophet_model6paiwite/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.883+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.882+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:38.920+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:38.920+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:38.924+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:38.924+0000] {logging_mixin.py:188} INFO - Test 9/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:38.942+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/pyw7k5o0.json
+[2025-07-31T12:01:38.971+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/xo9jv14a.json
+[2025-07-31T12:01:38.973+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:38.973+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:38.974+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=10730', 'data', 'file=/tmp/tmpis1aah28/pyw7k5o0.json', 'init=/tmp/tmpis1aah28/xo9jv14a.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelxmoe4y39/prophet_model-20250731120138.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:38.975+0000] {logging_mixin.py:188} WARNING - 12:01:38 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:38.975+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.003+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.003+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.006+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.007+0000] {logging_mixin.py:188} INFO - Test 10/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:39.023+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/95md983a.json
+[2025-07-31T12:01:39.052+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/vicke162.json
+[2025-07-31T12:01:39.054+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.054+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.055+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=16152', 'data', 'file=/tmp/tmpis1aah28/95md983a.json', 'init=/tmp/tmpis1aah28/vicke162.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelw9aujt2t/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.055+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.055+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.096+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.096+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.099+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.100+0000] {logging_mixin.py:188} INFO - Test 11/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:39.115+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/h_ll4i4d.json
+[2025-07-31T12:01:39.141+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/u2fvab50.json
+[2025-07-31T12:01:39.142+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.143+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.144+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=38847', 'data', 'file=/tmp/tmpis1aah28/h_ll4i4d.json', 'init=/tmp/tmpis1aah28/u2fvab50.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelvgbwzbe5/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.144+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.144+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.180+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.180+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.183+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.184+0000] {logging_mixin.py:188} INFO - Test 12/18: {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:39.199+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/6zb9cil7.json
+[2025-07-31T12:01:39.225+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/j1embyt1.json
+[2025-07-31T12:01:39.227+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.227+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.228+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=1976', 'data', 'file=/tmp/tmpis1aah28/6zb9cil7.json', 'init=/tmp/tmpis1aah28/j1embyt1.json', 'output', 'file=/tmp/tmpis1aah28/prophet_model3cyuz80s/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.228+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.228+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.270+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.270+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.273+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.05, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.273+0000] {logging_mixin.py:188} INFO - Test 13/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:39.288+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/niwxf390.json
+[2025-07-31T12:01:39.314+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/x79fq15a.json
+[2025-07-31T12:01:39.316+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.316+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.317+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=15589', 'data', 'file=/tmp/tmpis1aah28/niwxf390.json', 'init=/tmp/tmpis1aah28/x79fq15a.json', 'output', 'file=/tmp/tmpis1aah28/prophet_model35a4_j5y/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.318+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.317+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.341+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.341+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.344+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.345+0000] {logging_mixin.py:188} INFO - Test 14/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:39.360+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/05ldqizi.json
+[2025-07-31T12:01:39.387+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/fq16li7c.json
+[2025-07-31T12:01:39.388+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.389+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.389+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=86207', 'data', 'file=/tmp/tmpis1aah28/05ldqizi.json', 'init=/tmp/tmpis1aah28/fq16li7c.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelzor375oo/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.390+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.390+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.419+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.419+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.423+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 1.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.424+0000] {logging_mixin.py:188} INFO - Test 15/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:39.443+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/367zpkgl.json
+[2025-07-31T12:01:39.472+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/zqhaqout.json
+[2025-07-31T12:01:39.473+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.474+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.474+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=32188', 'data', 'file=/tmp/tmpis1aah28/367zpkgl.json', 'init=/tmp/tmpis1aah28/zqhaqout.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modeltiftz6gw/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.475+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.475+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.500+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.500+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.503+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.504+0000] {logging_mixin.py:188} INFO - Test 16/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:39.522+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/vw6he_lv.json
+[2025-07-31T12:01:39.549+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/vqm1p01w.json
+[2025-07-31T12:01:39.551+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.552+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.552+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=24784', 'data', 'file=/tmp/tmpis1aah28/vw6he_lv.json', 'init=/tmp/tmpis1aah28/vqm1p01w.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelxpu9gkdt/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.553+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.553+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.589+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.589+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.592+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 5.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.593+0000] {logging_mixin.py:188} INFO - Test 17/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}
+[2025-07-31T12:01:39.609+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/z02r2zbw.json
+[2025-07-31T12:01:39.637+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/8x4n61lu.json
+[2025-07-31T12:01:39.639+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.639+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.640+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=16494', 'data', 'file=/tmp/tmpis1aah28/z02r2zbw.json', 'init=/tmp/tmpis1aah28/8x4n61lu.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelyafegazy/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.641+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.640+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.668+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.668+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.671+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'additive'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.672+0000] {logging_mixin.py:188} INFO - Test 18/18: {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}
+[2025-07-31T12:01:39.689+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/t4na3_iu.json
+[2025-07-31T12:01:39.716+0000] {filesystem.py:118} DEBUG - input tempfile: /tmp/tmpis1aah28/r1dg4anm.json
+[2025-07-31T12:01:39.717+0000] {model.py:2042} DEBUG - idx 0
+[2025-07-31T12:01:39.718+0000] {model.py:2043} DEBUG - running CmdStan, num_threads: None
+[2025-07-31T12:01:39.718+0000] {model.py:2055} DEBUG - CmdStan args: ['/home/airflow/.local/lib/python3.11/site-packages/prophet/stan_model/prophet_model.bin', 'random', 'seed=36730', 'data', 'file=/tmp/tmpis1aah28/t4na3_iu.json', 'init=/tmp/tmpis1aah28/r1dg4anm.json', 'output', 'file=/tmp/tmpis1aah28/prophet_modelg1r_8rzh/prophet_model-20250731120139.csv', 'method=optimize', 'algorithm=lbfgs', 'iter=10000']
+[2025-07-31T12:01:39.719+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] start processing
+[2025-07-31T12:01:39.719+0000] {model.py:2058} INFO - Chain [1] start processing
+[2025-07-31T12:01:39.764+0000] {logging_mixin.py:188} WARNING - 12:01:39 - cmdstanpy - INFO - Chain [1] done processing
+[2025-07-31T12:01:39.764+0000] {model.py:2115} INFO - Chain [1] done processing
+[2025-07-31T12:01:39.767+0000] {logging_mixin.py:188} INFO - Erreur pour {'changepoint_prior_scale': 0.1, 'seasonality_prior_scale': 10.0, 'seasonality_mode': 'multiplicative'}: Less data than horizon after initial window. Make horizon or initial shorter.
+[2025-07-31T12:01:39.768+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T12:01:39.768+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/train_prophet.py", line 92, in train_prophet
+    best_model_temp, scores_temp = optimize_prophet_model(temp_df)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/train_prophet.py", line 44, in optimize_prophet_model
+    best = min(results, key=lambda x: x[1])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: min() arg is an empty sequence
+[2025-07-31T12:01:39.797+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=solar_ai_pipeline_2, task_id=train_prophet, run_id=scheduled__2023-07-09T00:00:00+00:00, execution_date=20230709T000000, start_date=20250731T120136, end_date=20250731T120139
+[2025-07-31T12:01:39.856+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2925 for task train_prophet (min() arg is an empty sequence; 4233)
+[2025-07-31T12:01:39.896+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-31T12:01:39.938+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T12:01:40.013+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,45 @@
+[2025-07-31T13:03:34.983+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-07-31T13:03:35.101+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-16T00:00:00+00:00 [queued]>
+[2025-07-31T13:03:35.148+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-16T00:00:00+00:00 [queued]>
+[2025-07-31T13:03:35.153+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-07-31T13:03:35.354+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): predict_prophet> on 2023-08-16 00:00:00+00:00
+[2025-07-31T13:03:35.362+0000] {standard_task_runner.py:63} INFO - Started process 19679 to run task
+[2025-07-31T13:03:35.367+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'solar_ai_pipeline_2', 'predict_prophet', 'scheduled__2023-08-16T00:00:00+00:00', '--job-id', '3000', '--raw', '--subdir', 'DAGS_FOLDER/prophet_pipeline.py', '--cfg-path', '/tmp/tmphex07r3u']
+[2025-07-31T13:03:35.370+0000] {standard_task_runner.py:91} INFO - Job 3000: Subtask predict_prophet
+[2025-07-31T13:03:35.546+0000] {task_command.py:426} INFO - Running <TaskInstance: solar_ai_pipeline_2.predict_prophet scheduled__2023-08-16T00:00:00+00:00 [running]> on host a2a0dd314bdc
+[2025-07-31T13:03:35.841+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='ensam' AIRFLOW_CTX_DAG_ID='solar_ai_pipeline_2' AIRFLOW_CTX_TASK_ID='predict_prophet' AIRFLOW_CTX_EXECUTION_DATE='2023-08-16T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-08-16T00:00:00+00:00'
+[2025-07-31T13:03:35.842+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-07-31T13:03:38.001+0000] {plot.py:39} ERROR - Importing plotly failed. Interactive plots will not work.
+[2025-07-31T13:03:39.895+0000] {logging_mixin.py:188} WARNING - /opt/airflow/dags/scripts/predict_prophet.py:52 FutureWarning: In a future version of pandas, parsing datetimes with mixed time zones will raise an error unless `utc=True`. Please specify `utc=True` to opt in to the new behaviour and silence this warning. To create a `Series` with mixed offsets and `object` dtype, please use `apply` and `datetime.datetime.strptime`
+[2025-07-31T13:03:39.915+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-07-31T13:03:39.915+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/scripts/predict_prophet.py", line 59, in predict_prophet
+    forecast = model.predict(future_df[["ds"]])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/prophet/forecaster.py", line 1270, in predict
+    df = self.setup_dataframe(df.copy())
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/prophet/forecaster.py", line 294, in setup_dataframe
+    raise ValueError('Found NaN in column ds.')
+ValueError: Found NaN in column ds.
+[2025-07-31T13:03:39.948+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=solar_ai_pipeline_2, task_id=predict_prophet, run_id=scheduled__2023-08-16T00:00:00+00:00, execution_date=20230816T000000, start_date=20250731T130335, end_date=20250731T130339
+[2025-07-31T13:03:40.037+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3000 for task predict_prophet (Found NaN in column ds.; 19679)
+[2025-07-31T13:03:40.090+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-07-31T13:03:40.141+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-31T13:03:40.144+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
